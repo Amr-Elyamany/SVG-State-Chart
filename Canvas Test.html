@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:vml="urn:schemas-microsoft-com:vml"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <!--<meta http-equiv="Content-type" content="text/html; charset=utf-8" />-->
+        <title>JSGL empty page template</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <!--[if vml]><style>vml\:* {behavior: url(#default#VML);}</style><![endif]-->
+        <script type="text/javascript" src="jsgl.js"></script>
+        <script type="text/javascript" src="jquery-2.0.2.js"></script>
+        <script type="text/javascript" src="jquery-ui.js"></script>
+        <script type="text/javascript" src="StateChart.js"></script>
+        <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="tooltip.css" type="text/css"/>
+    </head>
+    <body>
+        <div id="panel" style="width: 640px; height: 640px " ></div>
+        <span id="ruler" style="visibility: hidden" ></span>
+        <script type="text/javascript">
+
+//            var data = {"nodeDataArray": [
+//                    {"key": 0, "loc": "0 0", "text": "Active Consumer", "visited": true},
+//                    {"key": 1, "loc": "100 100", "text": "Bank Validated", "visited": true},
+//                    {"key": 2, "loc": "0 0", "text": "Consumer Credentials Saving Failed", "visited": true},
+//                    {"key": 3, "loc": "0 0", "text": "Consumer Credentials Saved", "visited": true},
+//                    {"key": 4, "loc": "0 0", "text": "Canceled by the Consumer - Cancelled in SADAD & ODS", "visited": true},
+//                    {"key": 5, "loc": "0 0", "text": "Light Account Created", "visited": true},
+//                    {"key": 6, "loc": "0 0", "text": " Light Account Creation Failed", "visited": true},
+//                    {"key": 7, "loc": "0 0", "text": "Need Customer Reactivation", "visited": true},
+//                    {"key": 8, "loc": "0 0", "text": "Need New Alias By Consumer", "visited": true},
+//                    {"key": 9, "loc": "0 0", "text": "SADAD Notification Failed ", "visited": true}
+//                ], "linkDataArray": []}
+
+
+
+
+            var data = {"nodeDataArray": [
+                    {"id": 0, "loc": "120 120", "text": "Initial"},
+                    {"id": 1, "loc": "330 120", "text": "First down"},
+                    {"id": 2, "loc": "226 376", "text": "First up"},
+                    {"id": 3, "loc": "60 276", "text": "Second down"},
+                    {"id": 4, "loc": "226 226", "text": "Wait"}
+                ],
+                "linkDataArray": [
+                    
+                    {"from": 0, "to": 1, "text": "down","desc": "desc1","startPos":null,"endPos":null,"deltaX":0,"deltaY":15, "curviness": 60},
+                    {"from": 1, "to": 0, "text": "up (moved)\nPOST","desc": "desc2","startPos":null,"endPos":null,"deltaX":0,"deltaY":-20, "curviness": 0}
+                    
+                ]
+            };
+
+/*{"from": 0, "to": 0, "text": "up or timer","desc": "desc0", "curviness": 20},
+ * {"from": 1, "to": 1, "text": "down","desc": "desc3", "curviness": 20},
+                    {"from": 1, "to": 2, "text": "up (no move)","desc": "desc4", "curviness": 20},
+                    {"from": 1, "to": 4, "text": "timer","desc": "desc5", "curviness": 20},
+                    {"from": 2, "to": 0, "text": "timer\nPOST","desc": "desc6", "curviness": 20},
+                    {"from": 2, "to": 3, "text": "down","desc": "desc7", "curviness": 20},
+                    {"from": 3, "to": 0, "text": "up\nPOST\n(dblclick\nif no move)","desc": "desc8", "curviness": 20},
+                    {"from": 3, "to": 3, "text": "down or timer","desc": "desc9", "curviness": 20},
+                    {"from": 4, "to": 0, "text": "up\nPOST","desc": "desc10", "curviness": 20},
+                    {"from": 4, "to": 4, "text": "down","desc": "desc11", "curviness": 20}*/
+            var state = new StateChart(data, 'panel');
+            state.createChart();
+            
+//            state.setVisited(3);
+
+//            var hoverListener = function(eventArgs) {
+//                if (state.shapes.indexOf(eventArgs.getSourceElement()) !== -1)
+//                {
+//                    eventArgs.getSourceElement().getFill().setColor('cyan');
+//                }
+//
+//            };
+//
+//            var outListener = function(eventArgs) {
+//                if (state.shapes.indexOf(eventArgs.getSourceElement()) !== -1)
+//                {
+//                    var k = state.shapes.indexOf(eventArgs.getSourceElement());
+//                    eventArgs.getSourceElement().getFill().
+//                            setColor(state.data.nodeDataArray[k].color);
+//
+//                }
+//            };
+//            state.canvas.addMouseOverListener(hoverListener);
+//            state.canvas.addMouseOutListener(outListener);
+
+
+//        mypanel = new jsgl.Panel(document.getElementById("panel"));
+////        
+//        circle1 = mypanel.createCircle();
+
+//        circle1.setCenterLocationXY(100,100);
+//        circle1.setRadius(50);
+//        mypanel.addElement(circle1);
+//        
+//        circle2 = mypanel.createCircle();
+//        circle2.setCenterLocationXY(300,300);
+//        circle2.setRadius(50);
+//        mypanel.addElement(circle2);
+//        
+//        
+//        curve = mypanel.createCurve();
+//        curve.setStartPointXY(100,100);
+//        curve.setEndPointXY(340,500);
+//        
+//        curve.setControl1Point(100,100);
+//        curve.setControl2Point(200,100);
+//        mypanel.addElement(curve);
+//        curve.setControl1X()
+
+        </script>
+    </body>
+</html>
